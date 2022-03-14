@@ -7,6 +7,15 @@ public class ProductDto {
     private String description;
     private Integer price;
 
+    public ProductDto(String description, Integer price) {
+        this.description = description;
+        this.price = price;
+    }
+
+    public ProductDto() {
+        
+    }
+
     public String getId() {
         return id;
     }

@@ -2,7 +2,6 @@ package com.aarish.productservice.util;
 
 import com.aarish.productservice.dto.ProductDto;
 import com.aarish.productservice.entity.Product;
-import com.aarish.productservice.mapper.ProductMapper;
 import org.springframework.beans.BeanUtils;
 
 public class EntityDtoUtil {
