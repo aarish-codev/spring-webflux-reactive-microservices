@@ -4,6 +4,7 @@ import com.aarish.productservice.dto.ProductDto;
 import com.aarish.productservice.mapper.ProductMapper;
 import com.aarish.productservice.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Range;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -43,5 +44,10 @@ public class ProductService {
 
     public Mono<Void> deleteProduct(String productId) {
         return this.repository.deleteById(productId);
+    }
+
+    public Flux<ProductDto> getProductsByPriceRange(int minPrice, int maxPrice) {
+        return this.repository.findByPriceBetween(Range.closed(minPrice, maxPrice))
+                .map(ProductMapper.MAPPER::toDto);
     }
 }
